@@ -3,10 +3,10 @@
 
 const kmMsg = document.querySelector(".km");
 
-var myLatLng = { lat: 38.346, lng: -0.4907 };
+var myLatLng = { lat: 26.8467, lng: 80.9462 };
 var mapOptions = {
   center: myLatLng,
-  zoom: 9,
+  zoom: 12,
   mapTypeId: google.maps.MapTypeId.ROADMAP,
 };
 

@@ -1,257 +1,117 @@
-/* 
- * Always set the map height explicitly to define the size of the div element
- * that contains the map. 
- */
-#map {
-  height: 100%;
-  width: 60vw;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-/* 
-   * Optional: Makes the sample page fill the window. 
-   */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
 * {
-  font-family: poppins, sans-serif;
+  /* font-family: 'Roboto'; */
+  /* font-family: Arial, Helvetica, sans-serif; */
+  /* font-family: Georgia, serif */
+  /* font-family: 'Poppins'; */
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-#bg {
-  background-image: url("/background-img.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  margin: auto;
-  color: aqua;
+.navigation {
+  width: inherit;
+  background-color: rgb(255, 255, 255);
+  /* font-weight: bold; */
 }
 
-.navbar {
-  z-index: 1;
-  position: fixed;
-  left: 0%;
-  right: 0%;
-  background-color: cyan;
+.logo {
+  width: 10vw;
+  padding: 0%;
+  padding-left: 5%;
 }
 
 .container {
-  max-width: 1920px;
-  width: 90%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
+  width: inherit;
+  height: 85vh;
+  background: #f4f8fa;
 }
 
-#wrap {
+.main {
+  margin-left: -25%;
+}
+
+input {
+  width: 25vh;
+  border: none;
+  padding: 15px;
+  padding-left: 45px;
+  /* margin-bottom: 10%; */
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+button {
+  margin-left: 70%;
+  width: fit-content;
+  background: #1b31a8;
+  color: white;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border: none;
+  border-radius: 2rem;
+}
+
+.title {
+  padding-top: 2%;
+  font-size: large;
+  color: #1b31a8;
+}
+
+.output {
+  width: 30vw;
   border-radius: 10px;
-  margin: 50px 0px;
-  padding: 50px 0px;
-  width: 50%;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  display: grid;
-  grid-template-columns: auto;
-  align-items: center;
-  overflow: hidden;
-  transition: all 250ms ease;
+  border: 1px solid rgb(225, 225, 225);
 }
 
-#logo {
+.box-1 {
+  background: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   display: flex;
-  justify-content: center;
-  width: 100%;
+  /* font-size: 30px; */
 }
 
-.input {
-  width: 80%;
-  margin: 50px auto;
+.flex-box {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  padding-top: 2%;
+  padding-inline: 25%;
 }
 
-#map-container {
-  display: none;
-  margin: 50px auto;
-  border-radius: 10px;
-  width: 80%;
-  height: 400px;
-  background-color: #ffffff;
+.map {
+  margin-left: 10%;
+  float: right;
+  box-shadow: 0px 0px 70px rgb(209, 209, 209);
 }
 
-.inp {
-  background: none;
+/*map*/
+#googleMap {
+  margin-left: 20%;
+  float: right;
   border: none;
-  outline: none;
-  border-bottom: 1px solid;
-  border-radius: 0px;
-  color: cyan;
-  padding: 10px 25px;
-  margin: 20px;
-  transition: 300ms;
+  /* box-shadow: 0px 0px 70px rgb(209, 209, 209); */
+  box-shadow: #949494 0px 20px 20px -10px;
+
+  min-width: 40vw;
+  height: 60vh;
 }
 
-.inp::placeholder {
-  color: cyan;
-  opacity: 1;
+/* new */
+
+/* i-1 {
+  position: absolute;
+  left: 45px;
+  top: 198px;
+  padding: 9px 8px;
+  color: rgb(255, 0, 0);
+  padding-left: 10%;
 }
 
-.inp:focus {
-  color: #333333;
-  background-color: cyan;
-}
-
-.btn {
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  width: 80%;
-  margin: 50px auto 0px auto;
-  padding: 10px 0px;
-  transition: 100ms;
-  background-color: cyan;
-}
-
-.btn:focus {
-  box-shadow: 0px 0px 10px cyan;
-  background-color: cyan;
-  color: #333333;
-}
-
-#choose-cat {
-  display: none;
-  width: 100%;
-  margin: 30px auto;
-  padding: 5px 0px;
-  background-color: cyan;
-  color: #333333;
-  text-align: center;
-}
-
-h3 {
-  font-weight: 400;
-  font-size: 15px;
-  text-align: center;
-  margin: 10px 10px;
-  display: inline-block;
-}
-
-input[type="range"] {
-  margin-right: 20px;
-}
-
-.flex-inside-container {
-  display: none;
-  flex-direction: column;
-  flex-wrap: wrap;
-  grid-column: 1/3;
-  padding: 50px;
-  border-radius: 5px;
-  margin: auto;
-  transition: all 250ms ease;
-}
-
-#range-flex {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.range {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: auto;
-}
-
-#cars {
-  left: 0;
-  right: 0;
-  padding: 5px;
-  outline: none;
-  border: none;
-  background-color: cyan;
-}
-
-.options {
-  margin: 20px;
-}
-
-#details {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-@media only screen and (max-width: 1200px) {
-  #wrap {
-    width: 70%;
-  }
-}
-
-@media only screen and (max-width: 1000px) {
-  #wrap {
-    width: 70%;
-  }
-}
-
-@media only screen and (max-width: 720px) {
-  #wrap {
-    grid-template-columns: 1fr !important;
-  }
-
-  #map-container {
-    grid-column: 1 / span 3;
-  }
-}
-
-@media only screen and (min-width: 500px) {
-  .flex-inside-container:hover {
-    box-shadow: 0px 0px 10px #666666;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .btn {
-    margin: 50px auto 0px auto;
-  }
-
-  #wrap {
-    width: 100%;
-  }
-
-  #range-flex {
-    margin-bottom: 30px;
-  }
-
-  .inp {
-    margin: 20px 0px;
-    padding: 10px 5px;
-  }
-
-  #logo img {
-    margin: auto;
-    width: 70%;
-  }
-
-  #map-container {
-    height: 250px;
-  }
-}
+i-2 {
+  position: absolute;
+  left: 45px;
+  top: 318px;
+  padding: 9px 8px;
+  color: rgb(255, 0, 0);
+  padding-left: 10%;
+} */

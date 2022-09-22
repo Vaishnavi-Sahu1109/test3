@@ -1,117 +1,392 @@
 * {
-  /* font-family: 'Roboto'; */
-  /* font-family: Arial, Helvetica, sans-serif; */
-  /* font-family: Georgia, serif */
-  /* font-family: 'Poppins'; */
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
-.navigation {
-  width: inherit;
-  background-color: rgb(255, 255, 255);
-  /* font-weight: bold; */
-}
-
-.logo {
-  width: 10vw;
-  padding: 0%;
-  padding-left: 5%;
-}
-
-.container {
-  width: inherit;
-  height: 85vh;
-  background: #f4f8fa;
-}
-
-.main {
-  margin-left: -25%;
-}
-
-input {
-  width: 25vh;
-  border: none;
-  padding: 15px;
-  padding-left: 45px;
-  /* margin-bottom: 10%; */
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: bold;
+body {
+  background: #cddaf3;
 }
 
 button {
-  margin-left: 70%;
-  width: fit-content;
-  background: #1b31a8;
-  color: white;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  cursor: pointer;
+}
+
+/* Navbar */
+.navbar-container {
+  margin: 1.5rem 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* logo */
+.logo {
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: #4955c8;
+}
+
+/* Nav link conatiner*/
+.nav-link-container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* Nav links */
+.nav-link {
+  text-decoration: none;
+  color: #4955c8;
+}
+.nav-link:hover {
+  color: #131743;
+}
+/* Contact btn */
+.contact {
+  padding: 0.6rem 2rem;
+  background: #ffffff;
+  font-size: 1rem;
+  border: 2px solid #4955c8;
+  border-radius: 0.5rem;
+  color: #4955c8;
+}
+.contact:hover {
+  color: #2c3cc8;
+  box-shadow: 0 0 10px #ffff;
+  transition-duration: 100ms;
+}
+
+/* Full Main container */
+.main-container {
+  margin: 3rem 10rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left-conatiner {
+  /*  */
+}
+
+.set-location {
+  display: flex;
+  background: #aaadff5c;
+  padding: 0.5rem;
+  gap: 1rem;
+  border-radius: 10px;
+}
+
+/* Location Input fields */
+.pickup,
+.destination {
+  position: relative;
+}
+
+.pickup-input,
+.destination-input {
+  background: #fff;
   border: none;
+  border-radius: 0.5rem;
+  padding: 1.2rem;
+  min-width: 15rem;
+  /* outline: none; */
+  font-size: 1rem;
+}
+
+.pickup:before,
+.destination::before {
+  content: " ";
+  height: 10px;
+  width: 10px;
+  background: rgb(255, 91, 91);
+
+  position: absolute;
+  left: 1rem;
+  bottom: 0.6rem;
+
   border-radius: 2rem;
 }
 
-.title {
-  padding-top: 2%;
-  font-size: large;
-  color: #1b31a8;
+/* Pickup input */
+.pickup-input {
+  /* border-radius: 5px 5px 0 0; */
+  /* border-bottom: 1px solid #acacac5c; */
+}
+/* Destination input */
+.destination-input {
+  /* border-top: 1px solid #acacac5c; */
+  /* border-radius: 0 0 5px 5px; */
+}
+/* Find cab btn */
+.find-cab {
+  padding: 0.6rem 2rem 0.6rem 1.5rem;
+  color: #ffffff;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: #4955c8;
+
+  margin: 1rem 0 3rem;
+  position: relative;
 }
 
-.output {
-  width: 30vw;
-  border-radius: 10px;
-  border: 1px solid rgb(225, 225, 225);
+.find-cab-arrow {
+  position: absolute;
+  right: -2rem;
 }
 
-.box-1 {
-  background: white;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+.find-cab:hover .find-cab-arrow {
+  animation: arrow-animation 2000ms ease-in-out;
+}
+
+@keyframes arrow-animation {
+  0% {
+    translate: 0px;
+  }
+  10% {
+    translate: 10px;
+  }
+  100% {
+    translate: 10px;
+  }
+}
+
+/* Journer Details Container */
+.details-container {
+  background: #fff;
+  padding: 2rem 7rem 2rem 3rem;
+  border-radius: 5px;
+  width: 15rem;
+
   display: flex;
-  /* font-size: 30px; */
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.flex-box {
-  display: flex;
-  padding-top: 2%;
-  padding-inline: 25%;
+.distance-container {
+  position: relative;
+  font-size: 0.8rem;
+}
+
+.distance-container > p {
+  font-weight: 200;
+  font-size: 1.7rem;
+  text-decoration: underline;
+  text-decoration-color: rgb(229, 229, 229);
+  text-underline-offset: 5px;
+}
+
+.distance-from .distance-from-span {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.distance-to .distance-to-span {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.distance {
+  position: absolute;
+  padding: 1.3rem 0;
+  top: 0.2rem;
+  left: 15rem;
+  font-size: 4rem;
+  font-weight: 700;
+  width: 20rem;
+  background: #9cb2f5;
+  text-align: center;
+  border-radius: 20px;
+
+  box-shadow: 0 0 15px rgba(67, 73, 255, 0.2);
+}
+
+.separator {
+  height: 2px;
+  background: #acacac5c;
+  margin-left: -3rem;
+  margin-right: -7rem;
+}
+
+.duration-container {
+  position: relative;
+}
+.duration-container p {
+  font-weight: 200;
+  font-size: 1.7rem;
+  text-decoration: underline;
+  text-decoration-color: rgb(229, 229, 229);
+  text-underline-offset: 5px;
+}
+.vehical-span {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.duration {
+  position: absolute;
+  padding: 1.5rem 0;
+  top: -0.4rem;
+  left: 15rem;
+  font-size: 2rem;
+  font-weight: 300;
+  width: 20rem;
+  background: #9cb2f5;
+  text-align: center;
+  border-radius: 20px;
+
+  box-shadow: 0 0 15px rgba(67, 73, 255, 0.2);
 }
 
 .map {
-  margin-left: 10%;
-  float: right;
-  box-shadow: 0px 0px 70px rgb(209, 209, 209);
 }
 
 /*map*/
 #googleMap {
-  margin-left: 20%;
-  float: right;
+  width: 700px;
+  height: 500px;
+  border-radius: 10px;
+
+  box-shadow: 0 0 15px rgba(67, 73, 255, 0.2);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Price section */
+.fare-container {
+  background: #b7cbf2;
+  padding: 2rem 20rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.selected-car > img {
+  height: 300px;
+}
+
+.fare-right {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+.total-fare {
+  background: #fff;
+  padding: 2rem 3rem 2rem 4rem;
+  border-radius: 10px;
+  text-align: right;
+  font-weight: 300;
+  margin: 0 2rem;
+}
+.fare-price {
+  font-size: 3rem;
+  font-weight: 700;
+  position: relative;
+  /* text-decoration: underline;
+  text-decoration-color: rgb(229, 229, 229);
+  text-underline-offset: 2px; */
+}
+.fare-price::after {
+  content: "";
+  height: 2px;
+  width: 100px;
+  background: #e5e5e5;
+
+  position: absolute;
+  display: inline-block;
+  bottom: 10px;
+  right: 0;
+}
+.pay-container {
+  display: flex;
+  align-items: center;
+}
+.pay {
+  background: #3aa17c;
+  color: #fff;
   border: none;
-  /* box-shadow: 0px 0px 70px rgb(209, 209, 209); */
-  box-shadow: #949494 0px 20px 20px -10px;
-
-  min-width: 40vw;
-  height: 60vh;
+  border-radius: 5px;
+  padding: 0.7rem 2rem;
+}
+.pay-later {
+  margin-left: 1rem;
+  color: #272727;
 }
 
-/* new */
+/* Vehical choosing */
+.title {
+  margin-left: 10rem;
+  margin-top: 3rem;
+  font-size: 3rem;
+  font-weight: 200;
+  font-family: "montserrat", Verdana, sans-serif;
+  color: #232323;
 
-/* i-1 {
-  position: absolute;
-  left: 45px;
-  top: 198px;
-  padding: 9px 8px;
-  color: rgb(255, 0, 0);
-  padding-left: 10%;
+  text-decoration: underline;
+  text-decoration-color: rgba(69, 69, 69, 0.193);
+  text-underline-offset: 8px;
 }
 
-i-2 {
+.vehical-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+
+  margin: 10rem 10rem;
+
+  height: 100px;
+  background: #ffffff;
+  border-radius: 100px;
+}
+.vehical-bar > div {
+  position: relative;
+  cursor: pointer;
+}
+.vehical-bar > div > img {
+  width: 400px;
+}
+.vehical-bar > div:hover > img {
+  scale: 1.1;
+  transform-origin: center center;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+.car3 > img {
+  margin-bottom: 2rem;
+}
+
+.car2 > img {
+  width: 330px !important;
+}
+
+.car-detail {
   position: absolute;
-  left: 45px;
-  top: 318px;
-  padding: 9px 8px;
-  color: rgb(255, 0, 0);
-  padding-left: 10%;
-} */
+  bottom: -7rem;
+  left: 3rem;
+  padding: 0 2rem 1rem;
+  box-sizing: border-box;
+  background: rgb(255, 255, 255);
+  width: 300px;
+  text-align: center;
+
+  border-radius: 0 0 1rem 1rem;
+}
+
+.car-detail .price {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.car-detail .car {
+  color: #5c5c5c;
+  font-size: 1.3rem;
+  font-family: "montserrat";
+}
+.car-detail .base-charge {
+  color: #5c5c5c;
+  font-size: 1.1rem;
+  font-family: "montserrat";
+}

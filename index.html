@@ -8,8 +8,8 @@
     <title>Cabby</title>
     <link rel="stylesheet" href="style.css">
 
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap" />
     <!-- new links  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
@@ -17,82 +17,103 @@
 
 <body>
 
-    <div class="navigation">
-        <img class="logo" src="./image 1.png" alt="">
-    </div>
+    <!-- Navbar -->
+    <nav class="navbar-container">
+        <h1 class="logo">Cabby</h1>
+        <!-- Nav Links -->
+        <div class="nav-link-container">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/" class="nav-link">About</a>
+            <a href="/" class="nav-link">Fare Details</a>
+            <a href="/" class="nav-link"><button class="contact">Contact</button></a>
+        </div>
+    </nav>
 
-
-    <div class="container">
-
-        <center>
-            <p class="title">Let's calculate <bold style="font-weight:bold;">distance</bold> from Google maps</p>
-        </center>
-
-        <div class="flex-box">
-
-            <div class="main">
-
-                Origin
-                <br>
-                <div>
-                    <i-1 class="fa fa-map-marker fa-2x fa-fw" aria-hidden="true"></i-1>
-                    <input id="from" style="margin-bottom: 2% ;" type="text" placeholder="Enter origin">
+    <div class="main-container">
+        <!-- Left Section -->
+        <section class="left-container">
+            <!-- Pickup and Destination Input -->
+            <div class="set-location">
+                <div class="pickup">
+                    <i class="fa fa-map-marker fa-2x fa-fw" aria-hidden="true"></i>
+                    <input type="text" id="from" class="pickup-input" placeholder="Pickup">
                 </div>
-                <br>
-                <button class="btn btn-info btn-lg " onclick="calcRoute();">Calculate</button>
-                <br>
-                Destination
-                <br>
-                <div>
-                    <i-2 class="fa fa-map-marker fa-2x fa-fw" aria-hidden="true"></i-2>
-                    <input id="to" style="margin-bottom: 10% ;" type="text" placeholder="Enter Destination">
+                <div class="destination">
+                    <i class="fa fa-map-marker fa-2x fa-fw" aria-hidden="true"></i>
+                    <input type="text" id="to" class="destination-input" placeholder="Destination">
                 </div>
-                <br>
-
-                <div class="output">
-
-                    <div class="box-1" style="background-color: white; padding: 1.5rem;">
-                        <span class="distance" style="font-size: 20px; margin-top: 5px;">Distance</span>
-                        <span class="km"
-                            style="padding-left:40%; font-size: 30px; color: #0079FF; font-weight: bold; ">0&nbsp;km</span>
-                    </div>
-
-                    <div class="box-2" style=" padding: 1.5rem;">
-                        <span class="op-msg" id="output" style="font-size:0.9rem;"></span>
-                    </div>
-
-                </div>
-
             </div>
 
-            <!-- <div class="map">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3666.37881859279!2d72.67171931497158!3d23.229298184848716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2b0e0167d8e9%3A0x9777963dd1f06126!2sBAPS%20Akshardham%20Temple%20%7C%20Gandhinagar!5e0!3m2!1sen!2sin!4v1659687873948!5m2!1sen!2sin"
-                    width="400" height="350" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div> -->
-
-            <div>
-                <button class="getCurrentLocation">
-                    Current Location
+            <!-- Find Cab Btn -->
+            <div class="find-cab-container">
+                <button class="find-cab" onclick="calcRoute()">
+                    Find Cab <img class="find-cab-arrow" src="./assets/arrow.svg" alt="">
                 </button>
             </div>
 
-            <div id="googleMap">
+            <!-- Journey Details Container-->
+            <div class="details-container hidden">
 
             </div>
+        </section>
 
-        </div>
+        <!-- Right Map Section -->
+
+        <div id="googleMap"></div>
     </div>
 
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDE8-06Xv8BQk2pA9fhSa6nOartz-Tg7tg&callback=initMap"></script> -->
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAolXVBph__8LXk-JukgnxDUI4LPDQAsxQ&callback=initMap"></script> -->
+    <!-- Price Section -->
+    <section class="fare-container hidden">
+        <div class="selected-car">
+            <img src="./assets/tucson.png" alt="">
+        </div>
+        <div class="fare-right">
+            <div class="total-fare">
+                <p>Total Fare</p>
+                <p class="fare-price">₹ <span class="fare-price-span"></span></p>
+                <p class="car">by Tucson</p>
+            </div>
+            <div class="pay-container">
+                <button class="pay">Pay Now</button>
+                <p class="pay-later">or Later</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vehical Choose -->
+    <section class="vehical-choose">
+        <div class="title">Select Your Vehical</div>
+        <div class="vehical-bar">
+            <div class="car3 tucsonCar tucson-div">
+                <img class="tucsonCar" src="./assets/tucson.png" alt="">
+                <div class=" tucsonCar car-detail">
+                    <p class=" tucsonCar price">₹ 30/km</p>
+                    <p class=" tucsonCar car"> Tucson <span>55km/h</span> </p>
+                    <p class=" tucsonCar base-charge">Base Charge: ₹ 60</p>
+                </div>
+            </div>
+            <div class="car1 dzireCar  dzire">
+                <img class="dzireCar" src="./assets/dzire.png" alt="">
+                <div class="dzireCar car-detail">
+                    <p class="dzireCar price">₹ 25/km</p>
+                    <p class="dzireCar car"> Dzire <span>50km/h</span> </p>
+                    <p class="dzireCar base-charge">Base Charge: ₹ 50</p>
+                </div>
+            </div>
+            <div class="car2 mercedesCar  mercedes">
+                <img class="mercedesCar" src="./assets/mercedes.png" alt="">
+                <div class="mercedesCar car-detail">
+                    <p class="mercedesCar price">₹ 60/km</p>
+                    <p class="mercedesCar car"> Mercedes <span>65km/h</span> </p>
+                    <p class="mercedesCar base-charge">Base Charge: ₹ 100</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAolXVBph__8LXk-JukgnxDUI4LPDQAsxQ&libraries=places"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-    <script src="Scripts/jquery-3.1.1.min.js"></script>
-
     <script src="script.js"></script>
 
 </body>

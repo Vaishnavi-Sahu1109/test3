@@ -11,6 +11,11 @@ let mapOptions = {
   mapTypeId: google.maps.MapTypeId.ROADMAP,
 };
 
+// calculate time for fare increment in night
+const time = new Date().getHours();
+const isNight = time > 21 || time < 6 ? true : false;
+console.log(isNight);
+
 //create map
 let map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
 
@@ -42,22 +47,25 @@ const priceByCar = [
     name: "tucsonCar",
     displayName: "Tucson",
     baseprice: 60,
+    nightPrice: 100,
     perkm: 30,
-    img: `<img src="./assets/tucson.png" alt="">`,
+    img: `<img class='resize-car' src="./assets/tucson.png" alt="">`,
   },
   {
     name: "dzireCar",
     displayName: "Dzire",
     baseprice: 50,
+    nightPrice: 100,
     perkm: 25,
-    img: `<img src="./assets/dzire.png" alt="">`,
+    img: `<img class='resize-car' src="./assets/dzire.png" alt="">`,
   },
   {
     name: "mercedesCar",
     displayName: "Mercedes",
     baseprice: 100,
+    nightPrice: 100,
     perkm: 60,
-    img: `<img src="./assets/mercedes.png" alt="">`,
+    img: `<img class='resize-car' src="./assets/mercedes.png" alt="">`,
   },
 ];
 // price calculate for any car
@@ -69,7 +77,10 @@ function priceCalculate(car) {
   document.querySelector(".car").innerHTML = "by " + selectedCar.displayName;
 
   const calculatedFare =
-    Math.floor(km * selectedCar.perkm) + selectedCar.baseprice;
+    Math.floor(km * selectedCar.perkm) +
+    (isNight
+      ? selectedCar.nightPrice + selectedCar.baseprice
+      : selectedCar.baseprice);
 
   const farePriceSpan = document.querySelector(".fare-price-span");
   farePriceSpan.innerHTML = calculatedFare;
@@ -103,7 +114,10 @@ function calcRoute() {
 
       // calculate fare
       const calculatedFare =
-        Math.floor((result.routes[0].legs[0].distance.value / 1000) * 30) + 60;
+        Math.floor(km * priceByCar[0].perkm) +
+        (isNight
+          ? priceByCar[0].nightPrice + priceByCar[0].baseprice
+          : priceByCar[0].baseprice);
 
       const farePriceSpan = document.querySelector(".fare-price-span");
       farePriceSpan.innerHTML = calculatedFare;
@@ -124,7 +138,7 @@ function calcRoute() {
 
       <div class="duration-container">
           <p>Duration</p>
-          <div class="vehical">by <span class="vehical-span">Sedan</span></div>
+          <div class="vehical">with <span class="vehical-span">50kmph</span></div>
 
           <div class="duration">${result.routes[0].legs[0].duration.text}</div>
       </div>`;

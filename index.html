@@ -12,7 +12,6 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap" />
     <!-- new links  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-
 </head>
 
 <body>
@@ -29,6 +28,8 @@
         </div>
     </nav>
 
+
+
     <div class="main-container">
         <!-- Left Section -->
         <section class="left-container">
@@ -37,6 +38,9 @@
                 <div class="pickup">
                     <i class="fa fa-map-marker fa-2x fa-fw" aria-hidden="true"></i>
                     <input type="text" id="from" class="pickup-input" placeholder="Pickup">
+                    <div class="current-location getCurrentLocation">
+                        <img src="./assets/current-location.png" alt="">
+                    </div>
                 </div>
                 <div class="destination">
                     <i class="fa fa-map-marker fa-2x fa-fw" aria-hidden="true"></i>
@@ -62,6 +66,7 @@
         <div id="googleMap"></div>
     </div>
 
+
     <!-- Price Section -->
     <section class="fare-container hidden">
         <div class="selected-car">
@@ -74,11 +79,15 @@
                 <p class="car">by Tucson</p>
             </div>
             <div class="pay-container">
-                <button class="pay">Pay Now</button>
-                <p class="pay-later">or Later</p>
+                Advance Payment for Booking
+                <form>
+                    <script src="https://checkout.razorpay.com/v1/payment-button.js"
+                        data-payment_button_id="pl_KLEwZExsBYZX52" async> </script>
+                </form>
             </div>
         </div>
     </section>
+
 
     <!-- Vehical Choose -->
     <section class="vehical-choose">
@@ -111,10 +120,12 @@
         </div>
     </section>
 
+
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAolXVBph__8LXk-JukgnxDUI4LPDQAsxQ&libraries=places"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="script.js"></script>
+
 
 </body>
 

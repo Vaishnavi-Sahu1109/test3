@@ -3,8 +3,12 @@
   padding: 0;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
+html {
+  margin: 0;
+}
 
 body {
+  margin: 0;
   background: #cddaf3;
 }
 
@@ -57,6 +61,28 @@ button {
   transition-duration: 100ms;
 }
 
+/* .fare-details {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 99vw;
+  background: rgba(57, 57, 57, 0.551);
+  z-index: 30;
+}
+.fare-details > div {
+  background: #fff;
+  height: 60vh;
+  width: 50vw;
+  margin: auto;
+  border-radius: 20px;
+}
+.fare-details .title {
+  margin-top: 6rem;
+  margin-left: 0;
+  padding-top: 2rem;
+  text-align: center;
+} */
+
 /* Full Main container */
 .main-container {
   margin: 3rem 10rem;
@@ -82,6 +108,29 @@ button {
 .pickup,
 .destination {
   position: relative;
+}
+
+.current-location:hover::after {
+  content: "Current Location";
+  position: absolute;
+  top: -1rem;
+  right: 0;
+  padding: 0.2rem 1rem;
+  border-radius: 0.5rem;
+  background: #45a66c;
+  color: #fff;
+}
+
+.current-location > img {
+  position: absolute;
+  width: 30px;
+  right: 1rem;
+  top: 1rem;
+
+  z-index: 10;
+  background-color: rgb(255, 255, 255);
+  border-radius: 2rem;
+  cursor: pointer;
 }
 
 .pickup-input,
@@ -260,10 +309,10 @@ button {
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 .selected-car > img {
-  height: 300px;
+  height: 340px;
 }
 
 .fare-right {
@@ -300,9 +349,13 @@ button {
   right: 0;
 }
 .pay-container {
-  display: flex;
-  align-items: center;
+  color: rgb(77, 77, 77);
+  text-align: right;
 }
+.pay-container > form {
+  margin-top: 1rem;
+}
+
 .pay {
   background: #3aa17c;
   color: #fff;
@@ -319,7 +372,7 @@ button {
 .title {
   margin-left: 10rem;
   margin-top: 3rem;
-  font-size: 3rem;
+  font-size: 2.2rem;
   font-weight: 200;
   font-family: "montserrat", Verdana, sans-serif;
   color: #232323;
@@ -389,4 +442,112 @@ button {
   color: #5c5c5c;
   font-size: 1.1rem;
   font-family: "montserrat";
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-container {
+    margin: 1rem;
+  }
+  .logo {
+    font-size: 1.5rem;
+  }
+  .nav-link-container {
+    display: none;
+  }
+  .main-container {
+    margin: 1rem;
+    flex-direction: column-reverse;
+  }
+  #googleMap {
+    width: 100%;
+    height: 30rem;
+  }
+  .set-location {
+    margin-top: 1rem;
+    flex-direction: column;
+  }
+  .find-cab {
+  }
+
+  .details-container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .details-container > p {
+    /* font-size: 1rem; */
+  }
+  .distance,
+  .duration {
+    font-size: 1rem;
+    width: 5rem;
+  }
+  .separator {
+    margin: 0 -1rem;
+  }
+  .fare-container {
+    padding: 1rem;
+    flex-direction: column;
+  }
+
+  .selected-car > img {
+    height: 200px;
+  }
+
+  .total-fare {
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    text-align: center;
+  }
+
+  .fare-price {
+    font-size: 1rem;
+  }
+  .fare-price::after {
+    bottom: 0;
+    width: 0;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    margin: 1rem;
+  }
+
+  .vehical-bar {
+    margin: 0;
+    flex-direction: column;
+    height: auto;
+    background: transparent;
+    gap: 2rem;
+  }
+
+  .vehical-bar > div:hover > img {
+    scale: 1;
+  }
+
+  .car-detail {
+    background: transparent;
+    padding: 0;
+    position: static;
+    text-align: center;
+    margin: auto;
+  }
+
+  .car-detail .price {
+    font-size: 2rem;
+  }
+  .car-detail .car {
+    font-size: 1rem;
+  }
+
+  .car3 > img {
+    margin: 0;
+  }
+  .car1 > img {
+    margin-bottom: -2rem;
+  }
+  .car2 > img {
+    margin-bottom: -4rem;
+    padding: 2rem;
+    width: 330px !important;
+  }
 }

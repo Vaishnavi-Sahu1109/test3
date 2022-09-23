@@ -14,7 +14,6 @@ let mapOptions = {
 // calculate time for fare increment in night
 const time = new Date().getHours();
 const isNight = time > 21 || time < 6 ? true : false;
-console.log(isNight);
 
 //create map
 let map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);

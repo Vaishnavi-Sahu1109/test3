@@ -2,7 +2,7 @@
 
 ## Hackathon Project
 
-### By [Shubham](https://shubhamvscode.netlify.app)
+### By [Vaishnavi Sahu](https://shubhamvscode.netlify.app)
 
 > This is a hackathon project conducted by Findcoder.io
 
